@@ -3,11 +3,11 @@ from time import sleep
 def equipo_activo (pokemon, equipo, pc): #creamos el equipo activo con una lista de maximo 6 pokemones 
     if len(equipo) < 6:
         equipo.append(pokemon)
-        print(f" {pokemon} agregado al equipo principal")
+        print(f" {pokemon.nombre} agregado al equipo principal  (b^ー°)")
     else:
         
         pc.agregar_pokemon(pokemon)
-        print(f"El equipo principal ya esta comleto por lo que el pokemon:{pokemon} ha sido enviado a la PC")
+        print(f"El equipo principal ya esta completo por lo que el pokemon:{pokemon.nombre} ha sido enviado a la PC  (b^ー°)")
 
 
 
@@ -103,7 +103,9 @@ def curar_equipo(equipo):
     sleep(2)
     while not centro.is_empty():
         pokemon = centro.curar_siguiente() # simulamos la sancion usando la queue
-        print(f"{pokemon} fue curado.")    # el primer pokemon que entra al  centro es el primero que se va 
+        print(f"{pokemon}  ---> fue curado")    # el primer pokemon que entra al  centro es el primero que se va 
+        sleep(0.5)
+    print("Pokemones curados con exito")
 
 if __name__ == "__main__":
 

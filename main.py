@@ -1,6 +1,107 @@
-from pokedex_medallas import pokedex_nacional, registro_medallas # importamos de la pokedex y registros necesarios 
+from pokedex_medallas import pokedex_nacional, registro_medallas
+from captura import capturar_pokemon
+from pc_centro import PC, mostrar_equipo, curar_equipo
+import os 
+from time import sleep 
 
-pokedex = pokedex_nacional()
-medallas = registro_medallas()
+def ver_pokedex(pokedex):   # creamos funcion ver_pokedex del metodo obtener_valores de la pokedex 
+    pokemones = pokedex.obtener_valores()
+
+    if len(pokemones) == 0:
+        print("La Pokedex está vacia")
+        return
+
+    print("\n---- POKEDEX NACIONAL ----")
+    for pokemon in pokemones:
+        print(pokemon)
+    seguir = input("Inserte cualquier boton para continuar : ")
+    os.system("cls")
+    return
 
 
+def main():
+    os.system("cls")
+    print("   SISTEMA DE GESTIÓN: POKÉMON HUERGO   ")
+    sleep(0.5)
+    print("Inicializando motor de base de datos... OK.")
+    sleep(0.5)
+    print("Cargando Pokédex Nacional... OK.")
+    sleep(0.5)
+    print("Validando registros de medallas... OK.")
+    sleep(0.5)
+    os.system("cls")
+
+
+    pokedex = pokedex_nacional()
+    medallas = registro_medallas()
+
+    equipo = [] # array equipo principal 
+    pc = PC()   # linked list pc
+
+    while True: # repetimos el menu principal en bucle
+        print("\n--- MENU PRINCIPAL ---")
+        print("1. Ver Pokédex")
+        print("2. Ver Equipo Principal")
+        print("3. Ver PC")
+        print("4. Capturar nuevo Pokémon")
+        print("5. Ordenar PC (pendiente)")
+        print("6. Buscar Pokémon en Equipo (pendiente)")
+        print("7. Enviar Pokémon al Centro Pokémon")
+        print("8. Transferir Pokémon al Profesor Oak (pendiente)")
+        print("9. Deshacer última transferencia (pendiente)")
+        print("10. Desafiar Líder de Gimnasio (pendiente)")
+        print("11. Salir del sistema")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            os.system("cls")
+            ver_pokedex(pokedex)
+
+        elif opcion == "2":
+            os.system("cls")
+            mostrar_equipo(equipo)
+
+        elif opcion == "3":
+            os.system("cls")
+            pc.mostrar_pc()
+
+        elif opcion == "4":
+            os.system("cls")
+            capturar_pokemon(pokedex, equipo, pc)
+
+        elif opcion == "5":
+            print("no implementado")
+
+        elif opcion == "6":
+            print("no implementado")
+
+        elif opcion == "7":
+            os.system("cls")
+            curar_equipo(equipo)
+
+        elif opcion == "8":
+            print("no implementado")
+
+        elif opcion == "9":
+            print("no implementado")
+
+        elif opcion == "10":
+            print("no implementado")
+
+        elif opcion == "11":
+            os.system("cls")
+            print("Saliendo del sistema...")
+            sleep(1)
+            os.system("cls")
+            break
+
+        else:
+            os.system("cls")
+            print("Opcion invalida")
+            sleep(1)
+            os.system("cls")
+
+
+if __name__ == "__main__":
+    main()
