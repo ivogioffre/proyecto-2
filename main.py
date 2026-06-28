@@ -4,6 +4,7 @@ from pc_centro import PC, mostrar_equipo, curar_equipo
 import os 
 from time import sleep 
 from oak_gimnasio import StackTransferencias,transferir_pokemon,deshacer_transferencia,desafiar_gimnasio
+from ordenamiento import ordenar_pc
 
 def ver_pokedex(pokedex):   # creamos funcion ver_pokedex del metodo obtener_valores de la pokedex 
     pokemones = pokedex.obtener_valores()
@@ -59,7 +60,7 @@ def main():
         print("2. Ver Equipo Principal")
         print("3. Ver PC")
         print("4. Capturar nuevo Pokémon")
-        print("5. Ordenar PC (pendiente)")
+        print("5. Ordenar PC ")
         print("6. Buscar Pokémon en Equipo (pendiente)")
         print("7. Enviar Pokémon al Centro Pokémon")
         print("8. Transferir Pokémon al Profesor Oak ")
@@ -87,7 +88,8 @@ def main():
             capturar_pokemon(pokedex, equipo, pc)
 
         elif opcion == "5":
-            print("no implementado")
+             os.system("cls")
+             ordenar_pc(pc)
 
         elif opcion == "6":
             print("no implementado")

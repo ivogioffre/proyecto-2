@@ -61,7 +61,7 @@ class PC:  # creamos el almacenamiento ilimitado de pokemones utilizando una lin
             print(actual.pokemon)
             actual = actual.next
 
-    def obtener_pokemones(self):
+    def obtener_pokemones(self): #devuelve una lista de python que nos ayudara al aplicar los metodos de ordenamiento 
         pokemones = []
         actual = self.head
 
@@ -71,7 +71,10 @@ class PC:  # creamos el almacenamiento ilimitado de pokemones utilizando una lin
 
         return pokemones
 
-    def mostrar_pc_numerada(self): # se muestra pc enumerada para cuando el usuario quiera transferir un pokemon al profesor Oak
+    def vaciar(self): # para reconstruir la linked list al ordenar la lista 
+        self.head = None
+
+    def mostrar_pc_numerada(self):  # se muestra pc enumerada para cuando el usuario quiera transferir un pokemon al profesor Oak
         if self.esta_vacia():
             print("La PC esta vacia ¯\\_(ツ)_/¯ ")
             return
@@ -86,7 +89,7 @@ class PC:  # creamos el almacenamiento ilimitado de pokemones utilizando una lin
             contador += 1
             actual = actual.next
 
-    def eliminar_por_posicion(self, posicion):# se escogue el pokemon a eliminar por la posicion en la pc 
+    def eliminar_por_posicion(self, posicion):  # se escoge el pokemon a eliminar por la posicion en la pc
         if self.esta_vacia():
             return None
 
@@ -109,7 +112,6 @@ class PC:  # creamos el almacenamiento ilimitado de pokemones utilizando una lin
         actual.next = eliminado.next
 
         return eliminado.pokemon
-
 class CentroPokemon:  # establecemos el cento pokemon como una queue
     def __init__(self):
         self.queue = []
