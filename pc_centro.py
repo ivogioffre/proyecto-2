@@ -17,15 +17,15 @@ class Nodo:
         self.next = None        #de esta manera podemos simular una linked list 
 
 
-class PC:#creamos el almacenamiento ilimitado de pokemones utilizando una linked list 
+class PC:  # creamos el almacenamiento ilimitado de pokemones utilizando una linked list
     def __init__(self):
-        self.head = None #variable head apunta al primer nodo de la  lista 
+        self.head = None  # variable head apunta al primer nodo de la lista
 
     def agregar_pokemon(self, pokemon):
         nuevo = Nodo(pokemon)
 
         if self.head is None:
-            self.head = nuevo # se establece al primer pokemon como head de la lista 
+            self.head = nuevo  # se establece al primer pokemon como head de la lista
             return
 
         actual = self.head
@@ -48,9 +48,9 @@ class PC:#creamos el almacenamiento ilimitado de pokemones utilizando una linked
 
         return contador
 
-    def mostrar_pc(self):  # se muestran los pokemones de la pc 
+    def mostrar_pc(self):  # se muestran los pokemones de la pc
         if self.esta_vacia():
-            print("La PC esta vacia ¯\_(ツ)_/¯ ")
+            print("La PC esta vacia ¯\\_(ツ)_/¯ ")
             return
 
         actual = self.head
@@ -60,6 +60,55 @@ class PC:#creamos el almacenamiento ilimitado de pokemones utilizando una linked
         while actual:
             print(actual.pokemon)
             actual = actual.next
+
+    def obtener_pokemones(self):
+        pokemones = []
+        actual = self.head
+
+        while actual:
+            pokemones.append(actual.pokemon)
+            actual = actual.next
+
+        return pokemones
+
+    def mostrar_pc_numerada(self): # se muestra pc enumerada para cuando el usuario quiera transferir un pokemon al profesor Oak
+        if self.esta_vacia():
+            print("La PC esta vacia ¯\\_(ツ)_/¯ ")
+            return
+
+        actual = self.head
+        contador = 1
+
+        print("---- PC POKEMON ----")
+
+        while actual:
+            print(f"{contador}. {actual.pokemon}")
+            contador += 1
+            actual = actual.next
+
+    def eliminar_por_posicion(self, posicion):# se escogue el pokemon a eliminar por la posicion en la pc 
+        if self.esta_vacia():
+            return None
+
+        if posicion < 1 or posicion > self.tamaño():
+            return None
+
+        if posicion == 1:
+            pokemon = self.head.pokemon
+            self.head = self.head.next
+            return pokemon
+
+        actual = self.head
+        contador = 1
+
+        while contador < posicion - 1:
+            actual = actual.next
+            contador += 1
+
+        eliminado = actual.next
+        actual.next = eliminado.next
+
+        return eliminado.pokemon
 
 class CentroPokemon:  # establecemos el cento pokemon como una queue
     def __init__(self):
