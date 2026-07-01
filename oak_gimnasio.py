@@ -8,7 +8,7 @@ class StackTransferencias: # stak de transferencias al profesor Oak
     def push(self, pokemon):
         if len(self.stack) == 5: #maximo 5 pokemones
             eliminado = self.stack.pop(0)
-            print(f"se elimino del historial la transferencia de {eliminado.nombre} (︶︹︶)")
+            print(f"Se eliminó del historial la transferencia de {eliminado.nombre} (︶︹︶)")
 
         self.stack.append(pokemon)
 
@@ -33,13 +33,13 @@ class StackTransferencias: # stak de transferencias al profesor Oak
 
 def transferir_pokemon(pc, transferencias): # funcion que se encarga de las transferencias 
     if pc.esta_vacia(): 
-        print("La PC esta vacia")
+        print("La PC esta vacía")
         sleep(1)
         return
     pc.mostrar_pc_numerada()
 
     try:
-        posicion = int(input("seleccione el pokemon a transferir por numero: "))
+        posicion = int(input("Seleccione el pokemon a transferir por numero: "))
     except:
         print("opcion invalida")
         sleep(1)
@@ -61,7 +61,7 @@ def transferir_pokemon(pc, transferencias): # funcion que se encarga de las tran
 def deshacer_transferencia(pc, transferencias):
 
     if transferencias.is_empty():
-        print("no hay transferencias para deshacer")
+        print("No hay transferencias para deshacer")
         sleep(1)
         return
 
@@ -76,7 +76,7 @@ def deshacer_transferencia(pc, transferencias):
 def desafiar_gimnasio(equipo,medallas):
 
     if len(equipo) == 0:
-        print("no tenes pokemones en tu equipo para desafiar un gimnasio")
+        print("No tenes pokemones en tu equipo para desafiar un gimnasio")
         return
 
     gimnasios = [   # usamos los mismos gimnasios que las medallas
@@ -98,12 +98,12 @@ def desafiar_gimnasio(equipo,medallas):
     try:
         opcion = int(input("seleccione un gimnasio: "))
     except:
-        print("opcion invalida")
+        print("opcion inválida")
         sleep(1)
         return
 
     if opcion < 1 or opcion > len(gimnasios):
-        print("Opcion invalida")
+        print("Opcion inválida")
         sleep(1)
         return
 

@@ -130,18 +130,7 @@ class CentroPokemon:  # establecemos el cento pokemon como una queue
 
     def size(self):
         return len(self.queue)
-
-def mostrar_equipo(equipo):
-
-    if len(equipo) == 0:
-        print("No hay pokemones en el equipo :(")
-        return
-
-    print("---- EQUIPO ACTIVO ----") # se muestra el equipo activo 
-    for pokemon in equipo:
-        print(pokemon)
-
-
+    
 def curar_equipo(equipo):
     if len(equipo) == 0:
         print("No hay pokemones para curar :)")

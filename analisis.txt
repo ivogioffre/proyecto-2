@@ -1,0 +1,32 @@
+1 - 
+Al agregar un pokemon al equipo principal (array) en este proyecto se utiliza un:
+    equipo.append(pokemon)
+De esta manera agregar un Pokemón al final de la lista tiene una complejidad temporal de
+O(1) ya que elemento se coloca al final de la lista de manera directa sin necesidad de recorrerla.
+Sin embargo si el array se llena y necesita redistribuir memoria toma O(n).
+
+Por otro lado en la Linked List utilizada en la PC al no tener indices en sí en el peor de los casos
+deberíamos reccorrer todos los nodos para insertar el elemento teniendo una complejidad O(n).
+Sin embargo si la inserción se realizara al inicio de la Linked list solo tendrías que cambiar el puntero 
+Head al elemento ingresado teniendo una complejidad O(1).
+
+2-
+La Pokedéx almacena los Pokemones existentes utilizando un Hash Map donde la clave es el ID del Pokemón
+y el valor es la instancia del objeto Pokemón, Así Cuando se desea buscar un Pokémon por su ID
+primero se calcula el índice mediante una función hash transformando el ID en una posicion de memoria exacta 
+Gracias a este mecanismo la búsqueda tiene una complejidad promedio de:
+    O(1)
+No dependiendo de la cantidad de Pokemones.
+En cambio si la Pokédex estuviera implementada mediante una lista convencional habría que recorrerla 
+elemento por elemento hasta encontrar el Pokémon buscado de esta manera la complejidad temporal sería:
+    O(n)
+Y mientras más Pokemones tenga la Pokedéx más se notaría la diferencia de rendimiento entre ambas estructuras.
+
+3-
+Si la PC almacenara alrededor de 6.000 Pokémon la diferencia de rendimiento entre ambos algoritmos sería muy grande
+ya que el Bubble Sort funciona comparando elementos contiguos e intercambiándolos entre sí si están desordenados
+repitiendo este proceso hasta ordenar toda la lista.De esta manera tanto en el caso promedio como en el peor caso su complejidad temporal es O(n²) 
+por lo que con una cantidad tan grande de Pokémon debería realizar millones de comparaciones haciendo que el proceso sea lento e ineficiente.
+
+En cambio Quick Sort divide la lista en partes más pequeñas utilizando un pivote y ordena cada una de ellas de manera recursiva.
+Así En promedio su complejidad es O(n log n) por lo que resulta mucho más rápido y eficiente para ordenar grandes cantidades de datos como una PC con miles de Pokémon.

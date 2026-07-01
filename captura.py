@@ -12,7 +12,7 @@ def capturar_pokemon(pokedex, equipo, pc):
 
     pokemon = random.choice(pokemones) # se elije un pokemon random de la pokedex
     print("\n")
-    print(f"[SISTEMA DE CAPTURA]")
+    print(f"--- SISTEMA DE CAPTURA ---")
     print(f"Ha aparecido un {pokemon.nombre} salvaje (PC: {pokemon.pc})")
 
     respuesta = input("¿Intentar capturarlo? (s/n): ").strip().lower()
